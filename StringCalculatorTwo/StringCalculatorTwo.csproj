@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ICalculator.cs" />
-    <Compile Include="Services\Constants.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Services\Delimiters.cs" />
     <Compile Include="Interfaces\IDelimiters.cs" />
     <Compile Include="Interfaces\ISplit.cs" />
