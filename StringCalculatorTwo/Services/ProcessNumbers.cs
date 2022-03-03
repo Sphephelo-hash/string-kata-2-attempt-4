@@ -11,15 +11,15 @@ namespace StringCalculatorTwo.Services
             _exceptions = exceptions;
         }
 
-        public int[] ConvertAndCheckNumbersAboverange(string[] stringNumbers)
+        public List<int> ConvertAndCheckNumbersAboverange(string[] stringNumbers)
         {
-            int[] numbers = ConvertStringNumbersToInt(stringNumbers);
+            List<int> numbers = ConvertStringNumbersToInt(stringNumbers);
             CheckForNumbersAboveRange(numbers);
 
             return numbers;
         }
 
-        public int[] ConvertStringNumbersToInt(string[] numbers)
+        public List<int> ConvertStringNumbersToInt(string[] numbers)
         {
             List<int> intNumbers = new List<int>();
             foreach (string number in numbers)
@@ -34,7 +34,7 @@ namespace StringCalculatorTwo.Services
                 }
             }
 
-            return intNumbers.ToArray();
+            return intNumbers;
         }
 
         public int ConvertCharToInt(char letter)
@@ -43,7 +43,7 @@ namespace StringCalculatorTwo.Services
             return (result < 10 && result > 0) ? result : 0;
         }
 
-        public void CheckForNumbersAboveRange(int[] numbers)
+        public void CheckForNumbersAboveRange(List<int> numbers)
         {
             string numbersAboveRange = string.Empty;
 

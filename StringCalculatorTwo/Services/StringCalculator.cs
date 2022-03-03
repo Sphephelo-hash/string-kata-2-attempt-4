@@ -1,4 +1,5 @@
 ﻿using StringCalculatorTwo.Services;
+using System.Collections.Generic;
 
 namespace StringCalculatorTwo
 {
@@ -28,7 +29,7 @@ namespace StringCalculatorTwo
             string[] delimiters = _delimiters.GetDelimiters(numbers);
             int startingIndex = char.IsLetterOrDigit(numbers[0]) ?  0: numbers.IndexOf(Constants.NewLine);
             string[] stringNumbers = _split.SplitNumbers(numbers, delimiters, startingIndex);
-            int[] intNumbers = _processNumbers.ConvertAndCheckNumbersAboverange(stringNumbers);
+            List<int> intNumbers = _processNumbers.ConvertAndCheckNumbersAboverange(stringNumbers);
             return _calculator.CalculateNumbers(intNumbers);
         }
     }

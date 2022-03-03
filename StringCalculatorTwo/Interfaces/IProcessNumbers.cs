@@ -1,10 +1,12 @@
-﻿namespace StringCalculatorTwo.Services
+﻿using System.Collections.Generic;
+
+namespace StringCalculatorTwo.Services
 {
     public interface IProcessNumbers
     {
-        void CheckForNumbersAboveRange(int[] numbers);
-        int[] ConvertAndCheckNumbersAboverange(string[] stringNumbers);
+        void CheckForNumbersAboveRange(List<int> numbers);
+        List<int> ConvertAndCheckNumbersAboverange(string[] stringNumbers);
         int ConvertCharToInt(char letter);
-        int[] ConvertStringNumbersToInt(string[] numbers);
+        List<int> ConvertStringNumbersToInt(string[] numbers);
     }
 }

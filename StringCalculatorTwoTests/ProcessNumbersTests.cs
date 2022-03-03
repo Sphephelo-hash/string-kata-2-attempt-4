@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using StringCalculatorTwo.Services;
 using NSubstitute;
+using System.Collections.Generic;
 
 namespace StringCalculatorTwoTests
 {
@@ -20,10 +21,10 @@ namespace StringCalculatorTwoTests
         {
             //Arrange 
             string[] input = { "1", "2", "3" };
-            int[] expected = { 1, 2, 3 };
+            List<int> expected = new List<int>(){ 1, 2, 3 };
 
             //Act
-            int[] result = _convertNumbers.ConvertStringNumbersToInt(input);
+            List<int> result = _convertNumbers.ConvertStringNumbersToInt(input);
 
             //Assert
             Assert.AreEqual(expected, result);
@@ -34,10 +35,10 @@ namespace StringCalculatorTwoTests
         {
             //Arrange 
             string[] input = { "1", "c", "m" };
-            int[] expected = { 1, 2, 0 };
+            List<int> expected = new List<int>() { 1, 2, 0 };
 
             //Act
-            int[] result = _convertNumbers.ConvertStringNumbersToInt(input);
+            List<int> result = _convertNumbers.ConvertStringNumbersToInt(input);
 
             //Assert
             Assert.AreEqual(expected, result);
