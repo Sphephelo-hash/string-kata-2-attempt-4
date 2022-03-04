@@ -2,6 +2,7 @@ using NUnit.Framework;
 using StringCalculatorTwo.Services;
 using NSubstitute;
 using System.Collections.Generic;
+using System;
 
 namespace StringCalculatorTwoTests
 {
@@ -45,6 +46,22 @@ namespace StringCalculatorTwoTests
 
             //Assert
             Assert.AreEqual(expected, result);
+        }
+
+        [Test]
+        public void GivenStringNumbersAbove10000_WhenConverting_ThrowsException()
+        {
+            // Arrange 
+            List<int> stringNumbers = new List<int>{ 1, 2, 10001 };
+            _exceptions.When(x => x.NumbersAboveRangeException(Arg.Any<string>()))
+                .Do(x => throw new Exception("Numbers are above range "));
+            string expected = "Numbers are above range ";
+
+            // Act
+            var results = Assert.Throws<System.Exception>(() => _convertNumbers.CheckForNumbersAboveRange(stringNumbers));
+
+            //assert
+            Assert.AreEqual(expected, results.Message);
         }
     }
 }

@@ -163,7 +163,7 @@ namespace StringCalculatorTwoTests
         {
             //Arrange
             string input = "1001,2,5,9";
-            string expected = "Numbers are above range 1001 ";
+            string expected = "Numbers are above range1001 ";
 
             //Act
             var result = Assert.Throws<Exception>(()=> _stringCalculator.Subtract(input));
@@ -177,7 +177,7 @@ namespace StringCalculatorTwoTests
         {
             //Arrange
             string input = "1001,2,5,9000";
-            string expected = "Numbers are above range 1001 9000 ";
+            string expected = "Numbers are above range1001 9000 ";
 
             //Act
             var result = Assert.Throws<Exception>(() => _stringCalculator.Subtract(input));

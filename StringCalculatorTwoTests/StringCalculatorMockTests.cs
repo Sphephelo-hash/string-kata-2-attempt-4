@@ -3,6 +3,7 @@ using StringCalculatorTwo.Services;
 using NUnit.Framework;
 using StringCalculatorTwo;
 using System.Collections.Generic;
+using System;
 
 namespace StringCalculatorTwoTests
 {
@@ -199,6 +200,18 @@ namespace StringCalculatorTwoTests
             //Assert
             Assert.AreEqual(expected, result);
         }
+
+        /*[Test]
+        public void TestCode()
+        {
+            string input = "1000,2,3";
+            List<int> numbers = new List<int> { 1000,2,3};
+            _processNumbers.When(x => x.ConvertAndCheckNumbersAboverange(input))
+                .Do(x => throw new Exception("Numbers are above range 1000 "));
+            var results = Assert.Throws<System.Exception>(() => _stringCalculator.Subtract(input));
+            //assert
+            Assert.AreEqual(results, results.Message);
+        }*/
     }
 }
 

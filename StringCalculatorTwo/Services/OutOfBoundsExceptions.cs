@@ -6,7 +6,7 @@ namespace StringCalculatorTwo.Services
     {
         public void NumbersAboveRangeException(string numbersAboveRange)
         {
-            throw new Exception("Numbers are above range " + numbersAboveRange);
+            throw new Exception("Numbers are above range" + numbersAboveRange);
         }
     }
 }
