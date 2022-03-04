@@ -61,7 +61,7 @@ namespace StringCalculatorTwoTests
         {
             // Arrange
             string input = "##[*]\n1*2*3";
-            string[] expected = {  "*" };
+            string[] expected = { "*" };
 
             // Act
             string[] result = _delimiters.GetDelimiters(input);

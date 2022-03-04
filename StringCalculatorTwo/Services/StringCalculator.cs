@@ -6,14 +6,10 @@ namespace StringCalculatorTwo
     public class StringCalculator
     {
         ICalculator _calculator;
-        IDelimiters _delimiters;   
         IProcessNumbers _processNumbers;
-        ISplit _split;
 
-        public StringCalculator(IDelimiters delimiters, ISplit split, IProcessNumbers processNumbers, ICalculator calculator)
+        public StringCalculator(IProcessNumbers processNumbers, ICalculator calculator)
         {
-            _delimiters = delimiters;
-            _split = split;
             _processNumbers = processNumbers;
             _calculator = calculator;
         }
@@ -26,10 +22,7 @@ namespace StringCalculatorTwo
                 return 0;
             }
 
-            string[] delimiters = _delimiters.GetDelimiters(numbers);
-            int startingIndex = char.IsLetterOrDigit(numbers[0]) ?  0: numbers.IndexOf(Constants.NewLine);
-            string[] stringNumbers = _split.SplitNumbers(numbers, delimiters, startingIndex);
-            List<int> intNumbers = _processNumbers.ConvertAndCheckNumbersAboverange(stringNumbers);
+            List<int> intNumbers = _processNumbers.ConvertAndCheckNumbersAboverange(numbers);
             return _calculator.CalculateNumbers(intNumbers);
         }
     }

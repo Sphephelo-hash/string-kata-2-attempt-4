@@ -4,16 +4,23 @@ namespace StringCalculatorTwo.Services
 {
     public class Split : ISplit
     {
-        public string[] SplitNumbers(string numbers, string[] delimiters, int startingIndex)
+        IDelimiters _delimiters;
+        public Split(IDelimiters delimiters)
         {
+            _delimiters = delimiters;
+        }
+
+        public string[] SplitNumbers(string numbers, int startingIndex)
+        {
+            string[] delimitersList = _delimiters.GetDelimiters(numbers);
             if (startingIndex != 0)
             {
                 string trimmedNumbers = numbers.Substring(startingIndex + 1);
 
-                return trimmedNumbers.Split(delimiters, StringSplitOptions.None);
+                return trimmedNumbers.Split(delimitersList, StringSplitOptions.None);
             }
 
-            return numbers.Split(delimiters, StringSplitOptions.None); ;
+            return numbers.Split(delimitersList, StringSplitOptions.None); ;
         }
     }
 }

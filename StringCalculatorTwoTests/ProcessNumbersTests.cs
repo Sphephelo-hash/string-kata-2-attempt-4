@@ -8,12 +8,15 @@ namespace StringCalculatorTwoTests
     public class ProcessNumbersTests
     {
         IProcessNumbers _convertNumbers;
+        ISplit _split;
         ICustomExceptions _exceptions;
+
         [SetUp]
         public void SetUp()
         {
             _exceptions = Substitute.For<ICustomExceptions>();
-            _convertNumbers = new ProcessNumbers(_exceptions);
+            _split = Substitute.For<ISplit>();
+            _convertNumbers = new ProcessNumbers(_exceptions, _split);
         }
 
         [Test]
@@ -21,7 +24,7 @@ namespace StringCalculatorTwoTests
         {
             //Arrange 
             string[] input = { "1", "2", "3" };
-            List<int> expected = new List<int>(){ 1, 2, 3 };
+            List<int> expected = new List<int>() { 1, 2, 3 };
 
             //Act
             List<int> result = _convertNumbers.ConvertStringNumbersToInt(input);

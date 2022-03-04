@@ -6,17 +6,21 @@ namespace StringCalculatorTwo.Services
     {
 
         ICustomExceptions _exceptions;
-        public ProcessNumbers(ICustomExceptions exceptions)
+        ISplit _split;
+        public ProcessNumbers(ICustomExceptions exceptions, ISplit split)
         {
             _exceptions = exceptions;
+            _split = split;
         }
 
-        public List<int> ConvertAndCheckNumbersAboverange(string[] stringNumbers)
+        public List<int> ConvertAndCheckNumbersAboverange(string numbers)
         {
-            List<int> numbers = ConvertStringNumbersToInt(stringNumbers);
-            CheckForNumbersAboveRange(numbers);
+            int startingIndex = char.IsLetterOrDigit(numbers[0]) ? 0 : numbers.IndexOf(Constants.NewLine);
+            string[] stringNumbers = _split.SplitNumbers(numbers, startingIndex);
+            List<int> numbersList = ConvertStringNumbersToInt(stringNumbers);
+            CheckForNumbersAboveRange(numbersList);
 
-            return numbers;
+            return numbersList;
         }
 
         public List<int> ConvertStringNumbersToInt(string[] numbers)

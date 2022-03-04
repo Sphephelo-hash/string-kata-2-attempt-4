@@ -44,9 +44,9 @@
     <Compile Include="Interfaces\ICalculator.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Services\Delimiters.cs" />
-    <Compile Include="Interfaces\IDelimiters.cs" />
     <Compile Include="Interfaces\ISplit.cs" />
     <Compile Include="Interfaces\IProcessNumbers.cs" />
+    <Compile Include="Interfaces\IDelimiters.cs" />
     <Compile Include="Services\OutOfBoundsExceptions.cs" />
     <Compile Include="Interfaces\ICustomExceptions.cs" />
     <Compile Include="Services\ProcessNumbers.cs" />

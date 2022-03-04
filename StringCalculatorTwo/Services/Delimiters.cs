@@ -2,7 +2,7 @@
 
 namespace StringCalculatorTwo.Services
 {
-    public class Delimiters : IDelimiters
+    public class Delimiters :  IDelimiters
     {
         public string[] GetDelimiters(string numbers)
         {
@@ -27,7 +27,7 @@ namespace StringCalculatorTwo.Services
             return FindDelimiters(delimitersAndSeparators, separators);
         }
 
-        public string [] GetCustomDelimiters(string numbers)
+        public string[] GetCustomDelimiters(string numbers)
         {
             string customDelimiters = numbers.Substring(2, numbers.IndexOf(Constants.NewLine) - 2);
             if (numbers.StartsWith(Constants.CustomDelimiterFlag + Constants.OpeningDelimiterFlag))
