@@ -8,11 +8,11 @@ namespace StringCalculatorTwoTests
     public class ProcessNumbersTests
     {
         IProcessNumbers _convertNumbers;
-        IExceptions _exceptions;
+        ICustomExceptions _exceptions;
         [SetUp]
         public void SetUp()
         {
-            _exceptions = Substitute.For<IExceptions>();
+            _exceptions = Substitute.For<ICustomExceptions>();
             _convertNumbers = new ProcessNumbers(_exceptions);
         }
 

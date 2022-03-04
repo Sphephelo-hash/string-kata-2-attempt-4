@@ -5,8 +5,8 @@ namespace StringCalculatorTwo.Services
     public class ProcessNumbers : IProcessNumbers
     {
 
-        IExceptions _exceptions;
-        public ProcessNumbers(IExceptions exceptions)
+        ICustomExceptions _exceptions;
+        public ProcessNumbers(ICustomExceptions exceptions)
         {
             _exceptions = exceptions;
         }

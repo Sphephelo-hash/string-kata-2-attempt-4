@@ -6,25 +6,36 @@ namespace StringCalculatorTwo.Services
     {
         public string[] GetDelimiters(string numbers)
         {
-            if (numbers.StartsWith(Constants.OpeningFlag))
+            if (numbers.StartsWith(Constants.OpeningSeparatorFlag))
             {
-                string delimitersAndSeparators = numbers.Substring(numbers.IndexOf(Constants.HashTag)+2, numbers.IndexOf(Constants.NewLine)-6);
-                char[] separators = FindSeparators(numbers);
-                return FindDelimiters(delimitersAndSeparators,separators );
+                return GetFlaggedDelimiters(numbers);
             }
 
             if (numbers.StartsWith(Constants.CustomDelimiterFlag))
             {
-                string customDelimiters = numbers.Substring(2, numbers.IndexOf(Constants.NewLine) - 2);
-                if (numbers.StartsWith(Constants.CustomDelimiterFlag + Constants.OpeningSquareBracket))
-                {
-                    return FindDelimiters(customDelimiters, new char [] { Constants.OpeningSquareBracket, Constants.ClosingSquareBracket});
-                }
-
-                return new string[] { customDelimiters };
+                return GetCustomDelimiters(numbers);
             }
 
             return new string[] { (Constants.NewLine.ToString()), (Constants.Comma.ToString()) };
+        }
+
+        public string[] GetFlaggedDelimiters(string numbers)
+        {
+            string delimitersAndSeparators = numbers.Substring(numbers.IndexOf(Constants.HashTag) + 2, numbers.IndexOf(Constants.NewLine) - 6);
+            char[] separators = FindSeparators(numbers);
+
+            return FindDelimiters(delimitersAndSeparators, separators);
+        }
+
+        public string [] GetCustomDelimiters(string numbers)
+        {
+            string customDelimiters = numbers.Substring(2, numbers.IndexOf(Constants.NewLine) - 2);
+            if (numbers.StartsWith(Constants.CustomDelimiterFlag + Constants.OpeningDelimiterFlag))
+            {
+                return FindDelimiters(customDelimiters, new char[] { Constants.OpeningDelimiterFlag, Constants.ClosingDelimiterFlag });
+            }
+
+            return new string[] { customDelimiters };
         }
 
         public char[] FindSeparators(string numbers)

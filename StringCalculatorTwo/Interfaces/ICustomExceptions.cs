@@ -1,6 +1,6 @@
 ﻿namespace StringCalculatorTwo.Services
 {
-    public interface IExceptions
+    public interface ICustomExceptions
     {
         void NumbersAboveRangeException(string numbersAboveRange);
     }

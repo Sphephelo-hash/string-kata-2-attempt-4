@@ -122,7 +122,7 @@ namespace StringCalculatorTwoTests
             int expected = -6;
 
             _delimiters.GetDelimiters(input).Returns(delimiters);
-            _split.SplitNumbers(input, delimiters, 9).Returns(stringNumbers);
+            _split.SplitNumbers(input, delimiters, 10).Returns(stringNumbers);
             _processNumbers.ConvertAndCheckNumbersAboverange(stringNumbers).Returns(intNumbers);
             _calculator.CalculateNumbers(intNumbers).Returns(expected);
 
@@ -166,7 +166,7 @@ namespace StringCalculatorTwoTests
             int expected = -16;
 
             _delimiters.GetDelimiters(input).Returns(delimiters);
-            _split.SplitNumbers(input, delimiters, 10).Returns(stringNumbers);
+            _split.SplitNumbers(input, delimiters, 9).Returns(stringNumbers);
             _processNumbers.ConvertAndCheckNumbersAboverange(stringNumbers).Returns(intNumbers);
             _calculator.CalculateNumbers(intNumbers).Returns(expected);
 

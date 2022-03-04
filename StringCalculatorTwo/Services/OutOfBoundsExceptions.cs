@@ -2,7 +2,7 @@
 
 namespace StringCalculatorTwo.Services
 {
-    public class OutOfBoundsExceptions : IExceptions
+    public class OutOfBoundsExceptions : ICustomExceptions
     {
         public void NumbersAboveRangeException(string numbersAboveRange)
         {
