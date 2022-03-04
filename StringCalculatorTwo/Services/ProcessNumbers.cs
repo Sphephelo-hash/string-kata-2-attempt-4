@@ -43,7 +43,7 @@ namespace StringCalculatorTwo.Services
 
         public int ConvertCharToInt(char letter)
         {
-            int result = letter % 32 - 1;
+            int result = letter - 'a';
             return (result < 10 && result > 0) ? result : 0;
         }
 
